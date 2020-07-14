@@ -93,3 +93,25 @@ div.svg {
   left: 0;
   bottom: 0;
 }
+
+
+
+.labelX {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  transform: translate(50%, 50%);
+  font-weight: bold;
+}
+
+
+.labelY {
+  display: block;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 10px;
+  transform: translate(-100%, -50%);
+  font-weight: bold;
+
+}

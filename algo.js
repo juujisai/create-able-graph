@@ -1,5 +1,5 @@
 
-
+// import data from file
 
 let dataFromFile;
 const openFile = function (event) {
@@ -44,10 +44,11 @@ const tableFunction = function (text) {
 
 
   const makeObjectsFromFetchedData = (text) => {
-
+    // split text after enter in csv
     let removeEnters = text.replace(/\s+/g, 'newRow')
 
     let array = []
+    // split data in rows
     removeEnters.split('newRow').forEach(split => {
       array.push(split.split(';'))
     })
@@ -77,6 +78,9 @@ const tableFunction = function (text) {
 
     const htmlTable = document.querySelector('table')
     htmlTable.innerHTML = ''
+
+
+    // creating rows
     d.map(row => {
 
       const createTr = document.createElement('tr')
@@ -84,7 +88,7 @@ const tableFunction = function (text) {
       const tr = htmlTable.appendChild(createTr)
 
 
-
+      // creating cells for rows
       for (let i = 0; i < row.length; i++) {
         const createTd = document.createElement('td')
 
@@ -95,7 +99,7 @@ const tableFunction = function (text) {
 
           let a = (row[i])
           // a.replace('ã', 'ń')
-
+          // check if string
           if ((a.toLowerCase()).includes('a') || (a.toLowerCase()).includes('ą') || (a.toLowerCase()).includes('o') || (a.toLowerCase()).includes('e') || (a.toLowerCase()).includes('ę') || (a.toLowerCase()).includes('u') || (a.toLowerCase()).includes('y') || (a.toLowerCase()).includes('i')) {
             tr.appendChild(createTd).innerHTML = row[i]
           } else {
@@ -132,6 +136,8 @@ const chart = function () {
 
   const chartOption = [document.querySelector('.option1'), document.querySelector('.option2')]
 
+
+  // add all values to option input
   chartOption.forEach(one => {
 
     for (let i = 0; i < naglowkiTxt.length; i++) {
@@ -165,19 +171,23 @@ const chart = function () {
   const drawChart = function () {
 
     const chartArea = document.querySelector('.chartDrawing')
-    chartArea.classList.toggle('active')
+    chartArea.classList.add('active')
 
     const type = document.getElementById('type').value
     const select1 = document.getElementById('option1').value
     const select2 = document.getElementById('option2').value
 
+    // check the id of selected option
     const indexOfSelect1 = naglowkiTxt.findIndex(naglowek => naglowek === select1)
     const indexOfSelect2 = naglowkiTxt.findIndex(naglowek => naglowek === select2)
 
+    // collect values in select1 column
     const tdForSelect1 = [...document.querySelectorAll(`table tr td:nth-of-type(${indexOfSelect1 + 1})`)]
     const valuesForSelect1 = []
     tdForSelect1.forEach(td => td = valuesForSelect1.push(td.innerHTML * 1))
     valuesForSelect1.splice(0, 1)
+
+    // collect values in select2 column
 
     const tdForSelect2 = [...document.querySelectorAll(`table tr td:nth-of-type(${indexOfSelect2 + 1})`)]
     const valuesForSelect2 = []
@@ -211,58 +221,82 @@ const chart = function () {
     valuesForSelect2.forEach(div => newDivHeight.push(div * 100 / ymax))
     let pathString = `M`
 
-    for (let i = 0; i < newDivHeight.length; i++) {
-      let div = document.createElement('div')
-      div.classList.add('chartDotted')
-      div.style.width = `${newDivWidth[i]}%`
-      div.style.height = `${newDivHeight[i]}%`
-      area.appendChild(div)
-
-      let div2 = document.createElement('div')
-      div2.classList.add('circle')
-      div2.style.left = `${newDivWidth[i]}%`
-      div2.style.bottom = `${newDivHeight[i]}%`
-      area.appendChild(div2)
-
-      if (i >= 0) {
+    if (type === 'kropkowy') {
 
 
-        let x = (newDivWidth[i] * areaData.width / 100).toFixed(1)
-        let y = (areaData.height - newDivHeight[i] * areaData.height / 100 + 5).toFixed(1)
-        // 5 dodano na sztywno - można zmienić
+      for (let i = 0; i < newDivHeight.length; i++) {
+        let span1 = document.createElement('span')
+        let span2 = document.createElement('span')
 
-        if (i < newDivHeight.length - 1) {
-          console.log('d')
-          pathString += `${x} ${y}L  `
-        } else {
-          console.log('dd')
-          pathString += `${x} ${y}`
+        span1.classList.add('labelX')
+        span2.classList.add('labelY')
+
+        span1.textContent = `${valuesForSelect1[i]}`
+        span2.textContent = `${valuesForSelect2[i]}`
+
+
+        let div = document.createElement('div')
+        div.classList.add('chartDotted')
+
+        div.appendChild(span1)
+        div.appendChild(span2)
+
+        div.style.width = `${newDivWidth[i]}%`
+        div.style.height = `${newDivHeight[i]}%`
+        area.appendChild(div)
+
+        let div2 = document.createElement('div')
+        div2.classList.add('circle')
+        div2.style.left = `${newDivWidth[i]}%`
+        div2.style.bottom = `${newDivHeight[i]}%`
+        area.appendChild(div2)
+
+        if (i >= 0) {
+
+
+          let x = (newDivWidth[i] * areaData.width / 100).toFixed(1)
+          let y = (areaData.height - newDivHeight[i] * areaData.height / 100 + 5).toFixed(1)
+          // 5 dodano na sztywno - można zmienić
+
+          if (i < newDivHeight.length - 1) {
+            console.log('d')
+            pathString += `${x} ${y}L  `
+          } else {
+            console.log('dd')
+            pathString += `${x} ${y}`
+          }
+
+
         }
-
 
       }
 
-    }
+
+
+      console.log(pathString)
 
 
 
-    console.log(pathString)
+      // pathString += `Z`
 
-
-
-    // pathString += `Z`
-
-    const svg = document.createElement('div')
-    svg.classList.add('svg')
-    svg.innerHTML = `<svg width="${areaData.width}" height="${areaData.height}" viewBox="0 0 ${areaData.width} ${areaData.height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+      const svg = document.createElement('div')
+      svg.classList.add('svg')
+      svg.innerHTML = `<svg width="${areaData.width}" height="${areaData.height}" viewBox="0 0 ${areaData.width} ${areaData.height}" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="${pathString}" stroke="green"/>
     </svg>`
-    area.appendChild(svg)
+      area.appendChild(svg)
 
+    }
   }
 
-
   buttonStartDrawing.addEventListener('click', drawChart)
+
+  const eraseDrawing = document.querySelector('.eraseDrawing')
+  eraseDrawing.addEventListener('click', function () {
+    document.querySelector('.chartDrawing').innerHTML = ''
+  })
+
+
 
 
 
