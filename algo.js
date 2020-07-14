@@ -177,6 +177,18 @@ const chart = function () {
     const select1 = document.getElementById('option1').value
     const select2 = document.getElementById('option2').value
 
+    const spanLabelSelect1 = document.createElement('span')
+    const spanLabelSelect2 = document.createElement('span')
+
+    spanLabelSelect1.classList.add('naglowek1')
+    spanLabelSelect2.classList.add('naglowek2')
+
+    spanLabelSelect1.textContent = select1
+    spanLabelSelect2.textContent = select2
+
+    chartArea.appendChild(spanLabelSelect1)
+    chartArea.appendChild(spanLabelSelect2)
+
     // check the id of selected option
     const indexOfSelect1 = naglowkiTxt.findIndex(naglowek => naglowek === select1)
     const indexOfSelect2 = naglowkiTxt.findIndex(naglowek => naglowek === select2)
