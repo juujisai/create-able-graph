@@ -67,6 +67,7 @@ const tableFunction = function (text) {
   csvContainer.style.display = 'block'
 
   const createTable = (d) => {
+    document.querySelector('.addMenu').classList.add('hidden')
 
     const newTable = document.createElement('table')
     csvContainer.appendChild(newTable)
@@ -385,6 +386,15 @@ const chart = function () {
 }
 
 
+
+const tools = () => {
+  const addCSVWindow = document.getElementById('addCSV')
+  const addMenu = document.querySelector('.addMenu')
+  addCSVWindow.addEventListener('click', () => addMenu.classList.toggle('hidden'))
+}
+
+
+tools()
 
 
 

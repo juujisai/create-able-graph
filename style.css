@@ -16,6 +16,84 @@ header {
 }
 
 
+.editTools {
+  width: 100%;
+  background-color: rgb(104, 104, 104);
+}
+
+.editTools ul {
+  display: flex;
+  height: 100%;
+  list-style-type: none;
+}
+
+
+.editTools ul li {
+  flex-basis: 20%;
+  height: 100%;
+}
+
+.editTools ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 1.5vh 0;
+  color: #fff;
+}
+
+.editTools ul li a:hover {
+  background-color: rgb(134, 134, 134);
+
+}
+
+
+.option {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+  background-color: rgb(185, 184, 184);
+  line-height: 2;
+  text-align: left;
+  text-indent: 5%;
+}
+
+.editTools ul li a:hover .option {
+  display: block;
+}
+
+
+.addMenu.hidden {
+  display: none;
+}
+
+.addMenu {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  /* height: 30vh; */
+  border: 1px solid black;
+  background-color: #fff;
+}
+
+.addMenu h4,
+.addMenu input {
+  padding: 20px;
+}
+
+.addMenu p {
+  padding: 10px 20px;
+}
+
+
+
+
 #csv {
   display: none;
   margin: 20px auto;

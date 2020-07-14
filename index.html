@@ -11,25 +11,43 @@
 
 <body>
 
-  <header>
-
-  </header>
+  <!-- <header> </header> -->
 
   <div class="editTools">
     <ul>
-      <li><a>Plik</a></li>
-      <li><a>Edycja</a></li>
-      <li><a>Tabela</a></li>
-      <li><a>Wykres</a></li>
-      <li><a>Pomoc</a></li>
+      <li>
+        <a>Plik 
+        <div class ='option'>
+         <div id='addCSV'>Dodaj plik csv</div> 
+        </div>
+        </a>
+      </li>
+      <li>
+        <a>Edycja 
+        <div class ='option'>
+         <div>Edycja tabeli</div> 
+         <div>Edycja wykresu</div> 
+        </div>
+        </a>
+      </li>
+      <li>
+        <a>Pomoc 
+        <div class ='option'>
+         <div>Pomoc</div> 
+        </div>
+        </a>
+      </li>
     </ul>
   </div>
 
+  <div class="addMenu hidden">
+    <h4>Dodaj</h4>
+    <p>Wybierz plik csv, z którego chcesz utworzyć tabelę</p>
+    <p>Plik powinien zawierać nagłówek w pierwszym wierszu</p>
+    <input type="file" name="Plik" id="chooseFile" onChange='openFile(event)' accept='.csv'>
+  </div>
 
-  <p for="">Wybierz plik csv, z którego chcesz utworzyć tabelę</p>
-  <p>Plik powinien zawierać nagłówek w pierwszym wierszu</p>
-  <input type="file" name="Plik" id="chooseFile" onChange='openFile(event)' accept='.csv'>
-  <div class="inputValueContainer"></div>
+
   <div id="csv"></div>
 
 
