@@ -115,3 +115,38 @@ div.svg {
   font-weight: bold;
 
 }
+
+.graphBars {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.graphBars .graph {
+  /* width: 30px;  */
+  box-shadow: 0 0 2px black;
+}
+
+.graph .labelX {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 50%);
+  font-weight: bold;
+  width: auto
+}
+
+.graph .labelY {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  width: auto
+}
+
+
+.chartDrawing.slupkowy {
+  display: flex;
+  align-items: flex-end;
+}

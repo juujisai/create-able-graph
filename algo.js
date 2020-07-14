@@ -173,7 +173,7 @@ const chart = function () {
     const chartArea = document.querySelector('.chartDrawing')
     chartArea.classList.add('active')
 
-    const type = document.getElementById('type').value
+    const type = document.getElementById('type').value.toLowerCase()
     const select1 = document.getElementById('option1').value
     const select2 = document.getElementById('option2').value
 
@@ -184,19 +184,23 @@ const chart = function () {
     // collect values in select1 column
     const tdForSelect1 = [...document.querySelectorAll(`table tr td:nth-of-type(${indexOfSelect1 + 1})`)]
     const valuesForSelect1 = []
+    const clearValuesForSelect1 = []
+    tdForSelect1.forEach(td => td = clearValuesForSelect1.push(td.innerHTML))
     tdForSelect1.forEach(td => td = valuesForSelect1.push(td.innerHTML * 1))
+    // remove first cell - its a label
     valuesForSelect1.splice(0, 1)
+    clearValuesForSelect1.splice(0, 1)
 
     // collect values in select2 column
 
     const tdForSelect2 = [...document.querySelectorAll(`table tr td:nth-of-type(${indexOfSelect2 + 1})`)]
     const valuesForSelect2 = []
+    const clearValuesForSelect2 = []
+    tdForSelect2.forEach(td => td = clearValuesForSelect2.push(td.innerHTML))
     tdForSelect2.forEach(td => td = valuesForSelect2.push(td.innerHTML * 1))
+    // remove first cell - its a label
     valuesForSelect2.splice(0, 1)
-
-
-
-
+    clearValuesForSelect2.splice(0, 1)
 
 
     let xmax = Math.max(...valuesForSelect1)
@@ -222,9 +226,18 @@ const chart = function () {
     let pathString = `M`
 
     if (type === 'kropkowy') {
+      chartArea.classList.remove('slupkowy')
+
+      if (Number.isNaN(valuesForSelect1[0]) || Number.isNaN(valuesForSelect2[0])) {
+        chartArea.classList.remove('active')
+
+        return alert('nie można wybrać wartości tekstowych do wykresu kropkowego')
+      }
 
 
       for (let i = 0; i < newDivHeight.length; i++) {
+        // create labels
+
         let span1 = document.createElement('span')
         let span2 = document.createElement('span')
 
@@ -252,41 +265,106 @@ const chart = function () {
         area.appendChild(div2)
 
         if (i >= 0) {
-
-
           let x = (newDivWidth[i] * areaData.width / 100).toFixed(1)
           let y = (areaData.height - newDivHeight[i] * areaData.height / 100 + 5).toFixed(1)
           // 5 dodano na sztywno - można zmienić
 
           if (i < newDivHeight.length - 1) {
-            console.log('d')
             pathString += `${x} ${y}L  `
           } else {
-            console.log('dd')
             pathString += `${x} ${y}`
           }
-
-
         }
-
       }
-
-
-
-      console.log(pathString)
-
-
-
-      // pathString += `Z`
-
       const svg = document.createElement('div')
       svg.classList.add('svg')
       svg.innerHTML = `<svg width="${areaData.width}" height="${areaData.height}" viewBox="0 0 ${areaData.width} ${areaData.height}" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="${pathString}" stroke="green"/>
     </svg>`
       area.appendChild(svg)
+      // end of 'kropkowy'
+    }
+    if (type === 'slupkowy') {
+      // chartArea = ''
+      chartArea.classList.add('slupkowy')
+      let test1 = (clearValuesForSelect1[0] * 1)
+      let test2 = (clearValuesForSelect2[0] * 1)
+
+      let typeOfFirstOption = Number.isNaN(test1) ? 'string' : 'number'
+
+      let typeOfSecondOption = Number.isNaN(test2) ? 'string' : 'number'
+
+
+      let graphLabel = typeOfFirstOption === 'string' ? clearValuesForSelect1 : clearValuesForSelect2
+      let graphValue = typeOfFirstOption === 'number' ? clearValuesForSelect1 : clearValuesForSelect2
+
+      if (typeOfFirstOption === 'number' && typeOfSecondOption === 'number') {
+        graphLabel = clearValuesForSelect1
+        graphValue = clearValuesForSelect2
+      }
+
+      if (typeOfFirstOption === 'string' && typeOfSecondOption === 'string') {
+        return alert('nie można wybrać dwóch wartości tekstowych do utworzenia wykresu słupkowego')
+      }
+
+
+      let graphValueNumbers = []
+      graphValue.forEach(value => graphValueNumbers.push(value * 1))
+
+
+      console.log(graphLabel, graphValueNumbers)
+      let maxValue = Math.max(...graphValueNumbers)
+      let sectionHeight = maxValue / graphLabel.length
+
+      console.log(graphValueNumbers, maxValue)
+
+
+      for (let i = 0; i < graphLabel.length; ++i) {
+
+        const div = document.createElement('div')
+
+        div.classList.add('graphBars')
+
+        div.style.width = `${areaData.width / graphLabel.length}px`
+        div.style.height = `${graphValueNumbers[i] / maxValue * areaData.height}px`
+        // console.log(graphValueNumbers[i] / maxValue * areaData.height, maxValue)
+        // div.textContent = graphLabel[i]
+
+
+        const div2 = document.createElement('div')
+        div2.classList.add('graph')
+        div2.style.width = `${20}%`
+        div2.style.height = `${100}%`
+
+
+        let span1 = document.createElement('span')
+        let span2 = document.createElement('span')
+
+        span1.classList.add('labelX')
+        span2.classList.add('labelY')
+
+        span1.textContent = `${graphLabel[i]}`
+        span2.textContent = `${graphValueNumbers[i]}`
+
+        div2.appendChild(span1)
+        div2.appendChild(span2)
+
+        div.appendChild(div2)
+        chartArea.appendChild(div)
+
+
+
+      }
+
+
+
+
+
+
 
     }
+
+
   }
 
   buttonStartDrawing.addEventListener('click', drawChart)
