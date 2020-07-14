@@ -311,12 +311,8 @@ const chart = function () {
       let graphValueNumbers = []
       graphValue.forEach(value => graphValueNumbers.push(value * 1))
 
-
-      console.log(graphLabel, graphValueNumbers)
       let maxValue = Math.max(...graphValueNumbers)
-      let sectionHeight = maxValue / graphLabel.length
 
-      console.log(graphValueNumbers, maxValue)
 
 
       for (let i = 0; i < graphLabel.length; ++i) {
@@ -327,15 +323,11 @@ const chart = function () {
 
         div.style.width = `${areaData.width / graphLabel.length}px`
         div.style.height = `${graphValueNumbers[i] / maxValue * areaData.height}px`
-        // console.log(graphValueNumbers[i] / maxValue * areaData.height, maxValue)
-        // div.textContent = graphLabel[i]
-
 
         const div2 = document.createElement('div')
         div2.classList.add('graph')
         div2.style.width = `${20}%`
         div2.style.height = `${100}%`
-
 
         let span1 = document.createElement('span')
         let span2 = document.createElement('span')
@@ -344,7 +336,7 @@ const chart = function () {
         span2.classList.add('labelY')
 
         span1.textContent = `${graphLabel[i]}`
-        span2.textContent = `${graphValueNumbers[i]}`
+        span2.textContent = `${graphValue[i]}`
 
         div2.appendChild(span1)
         div2.appendChild(span2)

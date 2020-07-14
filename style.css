@@ -97,6 +97,7 @@ div.svg {
 
 
 .labelX {
+  display: block;
   position: absolute;
   right: 0;
   top: 100%;
@@ -110,7 +111,7 @@ div.svg {
   position: absolute;
   right: 100%;
   top: 0;
-  width: 10px;
+  /* width: 100%; */
   transform: translate(-100%, -50%);
   font-weight: bold;
 
@@ -130,19 +131,25 @@ div.svg {
 .graph .labelX {
   position: absolute;
   left: 50%;
-  top: 100%;
-  transform: translate(-50%, 50%);
+  right: auto;
+  top: auto;
+  bottom: 0%;
+  transform: translate(-50%, 100%);
   font-weight: bold;
-  width: auto
+  padding-top: 5px;
+  /* width: auto */
 }
 
 .graph .labelY {
   position: absolute;
   left: 50%;
+  right: auto;
   top: 50%;
+  transform: none;
   transform: translate(-50%, -50%);
   font-weight: bold;
-  width: auto
+  /* width: 100%; */
+  /* text-align: center; */
 }
 
 
