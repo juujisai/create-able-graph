@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <p for="">Wybierz plik csv, z którego chcesz utworzyć tabelę</p>
+  <p>Plik powinien zawierać nagłówek w pierwszym wierszu</p>
+  <input type="file" name="Plik" id="chooseFile" onChange='openFile(event)' accept='.csv'>
+  <div class="inputValueContainer"></div>
+  <div id="csv"></div>
+
+
+  <div class="chart">
+    <button class="drawChart">Rysuj wykres</button>
+    <div class="chartMenu">
+      <label for="type"> Rodzaj wykresu</label> <select class="type" id="type">
+        <option value="kropkowy">Kropkowy</option>
+        <option value="slupkowy">Słupkowy</option>
+
+      </select>
+      <label for="option1"> Kolumna nr 1 do wykresu </label> <select class="option1" id="option1"></select>
+      <label for="option2"> Kolumna nr 2 do wykresu </label> <select class="option2" id="option2"></select>
+      <button class="startDrawing">Rysuj</button>
+    </div>
+    <div class="chartDrawing">
+
+    </div>
+  </div>
+  <script src="algo.js"></script>
+</body>
+
+</html>

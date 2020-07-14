@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  margin: 20px 0;
+}
+
+#csv {
+  display: none;
+  margin: 20px auto;
+  /* background-color: red; */
+  max-width: 95%;
+  overflow-x: scroll;
+}
+
+
+table {
+  border-spacing: 0;
+  border: 2px solid black;
+  max-width: 100%
+}
+
+td {
+  padding: 5px;
+  border: 1px solid black;
+  /* width: 100px;
+  height: 30px; */
+  text-align: center;
+}
+
+div {
+  width: 100%;
+}
+
+tr:nth-of-type(1) {
+  background-color: yellow;
+}
+
+
+.chart {
+  display: none;
+}
+
+.chartMenu {
+  display: none;
+}
+
+.chartDrawing {
+  display: none;
+}
+
+.active {
+  display: block
+}
+
+.chartDrawing {
+  position: relative;
+  margin: 20px auto;
+  width: 70%;
+  height: 50vh;
+  /* background-color: #ddd; */
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.chartDotted {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-top: 1px dashed red;
+  border-right: 1px dashed red;
+}
+
+
+.circle {
+  position: absolute;
+  background-color: red;
+  width: 10px;
+  height: 10px;
+  border: 5px solid red;
+  border-radius: 50%;
+  transform: translate(-50%, 50%);
+
+}
+
+
+div.svg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
