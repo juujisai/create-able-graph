@@ -400,10 +400,25 @@ const tools = () => {
   const menuWindow = [addWindow1, addWindow2]
   const menuOption = [addMenu1, addMenu2]
 
-  menuWindow.forEach((one, id) => one.addEventListener('click', () => menuOption[id].classList.toggle('hidden')))
+
+  menuWindow.forEach((one, id) => one.addEventListener('click', () => {
+    let otherWindows = menuOption.filter(one => one !== menuOption[id])
+
+    otherWindows.forEach(one => one.classList.add('hidden'))
+
+    menuOption[id].classList.toggle('hidden')
+
+  }))
 
   const close = [...document.querySelectorAll('.close')]
   close.forEach(one => one.addEventListener('click', function () { this.parentNode.classList.add('hidden') }))
+
+
+
+
+
+
+
 
 
 

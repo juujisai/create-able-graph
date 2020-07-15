@@ -42,6 +42,7 @@ header {
   text-align: center;
   padding: 1.5vh 0;
   color: #fff;
+  cursor: pointer
 }
 
 .editTools ul li a:hover {
@@ -55,7 +56,7 @@ header {
   position: absolute;
   top: 100%;
   left: 0%;
-  width: 100%;
+  min-width: 100%;
   background-color: rgb(185, 184, 184);
   line-height: 2;
   text-align: left;
@@ -154,7 +155,7 @@ label {
   right: 2%;
   top: 5%;
   width: 20px;
-  line-height: 20px;
+  height: 20px;
   background-color: red;
   color: white;
   text-align: center;
