@@ -23,13 +23,14 @@ header {
 
 .editTools ul {
   display: flex;
+  padding-left: 5%;
   height: 100%;
   list-style-type: none;
 }
 
 
 .editTools ul li {
-  flex-basis: 20%;
+  flex-basis: 10%;
   height: 100%;
 }
 
@@ -66,11 +67,13 @@ header {
 }
 
 
-.addMenu.hidden {
+.addMenu.hidden,
+.editTableWindow.hidden {
   display: none;
 }
 
-.addMenu {
+.addMenu,
+.editTableWindow {
   display: block;
   position: absolute;
   left: 50%;
@@ -83,13 +86,88 @@ header {
 }
 
 .addMenu h4,
-.addMenu input {
+.addMenu input,
+.editTableWindow h4 {
   padding: 20px;
 }
 
-.addMenu p {
+.addMenu p,
+.editTableWindow p {
   padding: 10px 20px;
 }
+
+.colorPicker,
+.borderTable,
+.borderCell,
+.lineStyle {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.fill {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #888;
+  margin-right: 3%;
+}
+
+.fill:hover {
+  filter: invert(20%)
+}
+
+.redFill {
+  background-color: #f00;
+}
+
+.greenFill {
+  background-color: #0f0;
+}
+
+.blueFill {
+  background-color: #00f;
+}
+
+.blackFill {
+  background-color: #000;
+}
+
+.yellowFill {
+  background-color: #ff0;
+}
+
+.transparentFill {
+  background-color: transparent;
+}
+
+
+label {
+  margin-left: 20px;
+}
+
+
+
+.close {
+  position: absolute;
+  right: 2%;
+  top: 5%;
+  width: 20px;
+  line-height: 20px;
+  background-color: red;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.close:hover {
+  background-color: rgb(224, 81, 81);
+
+}
+
+
+
 
 
 

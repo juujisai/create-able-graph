@@ -25,7 +25,7 @@
       <li>
         <a>Edycja 
         <div class ='option'>
-         <div>Edycja tabeli</div> 
+         <div id='editTable'>Edycja tabeli</div> 
          <div>Edycja wykresu</div> 
         </div>
         </a>
@@ -41,11 +41,74 @@
   </div>
 
   <div class="addMenu hidden">
+    <span class='close'>x</span>
     <h4>Dodaj</h4>
     <p>Wybierz plik csv, z którego chcesz utworzyć tabelę</p>
     <p>Plik powinien zawierać nagłówek w pierwszym wierszu</p>
     <input type="file" name="Plik" id="chooseFile" onChange='openFile(event)' accept='.csv'>
   </div>
+
+  <div class="editTableWindow hidden">
+    <span class='close'>x</span>
+
+    <h4>Edytuj tabelę</h4>
+    <p><strong> Kolor nagłówka</strong>
+      <div class='colorPicker'>
+        <span class='fill redFill'></span>
+        <span class="fill blueFill"></span>
+        <span class='fill yellowFill'></span>
+        <span class='fill greenFill'></span>
+        <span class="fill blackFill"></span>
+        <span class="fill transparentFill"></span>
+        <input type="color" name="colorPicker" id="colorPicker">
+      </div>
+    </p>
+    <p><strong>Obramowanie tabeli</strong>
+      <div class="borderTable">
+        <input type="range" min='0' max='5' name="borderWidth" id="borderWidth"><label for="borderWidth">Szerokość
+          obrysu</label>
+      </div>
+      <div class='colorPicker'>
+        <span class='fill redFill'></span>
+        <span class="fill blueFill"></span>
+        <span class='fill yellowFill'></span>
+        <span class='fill greenFill'></span>
+        <span class="fill blackFill"></span>
+        <span class="fill transparentFill"></span>
+        <input type="color" name="colorPicker" id="colorPicker"> <label> Kolor obrysu</label>
+      </div>
+      <div class='lineStyle'>
+        <select class="type" id="typeOfLineTable">
+          <option value="ciagly">Linia ciągła</option>
+          <option value="przerywany">Linia przerywana</option>
+          <option value="kropkowany">Linia kropkowana</option>
+        </select><label> Styl obrysu</label>
+      </div>
+    </p>
+    <p><strong>Obramowanie komórek</strong>
+      <div class="borderCell"><input type="range" min='0' max='5' name="borderWidth" id="borderWidth"><label
+          for="borderWidth">Szerokość
+          obrysu</label>
+      </div>
+      <div class='colorPicker'>
+        <span class='fill redFill'></span>
+        <span class="fill blueFill"></span>
+        <span class='fill yellowFill'></span>
+        <span class='fill greenFill'></span>
+        <span class="fill blackFill"></span>
+        <span class="fill transparentFill"></span>
+        <input type="color" name="colorPicker" id="colorPicker"> <label> Kolor obrysu</label>
+      </div>
+      <div class='lineStyle'>
+        <select class="type" id="typeOfLineTable">
+          <option value="ciagly">Linia ciągła</option>
+          <option value="przerywany">Linia przerywana</option>
+          <option value="kropkowany">Linia kropkowana</option>
+        </select><label> Styl obrysu</label></div>
+    </p>
+
+  </div>
+
 
 
   <div id="csv"></div>

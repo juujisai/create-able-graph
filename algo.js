@@ -388,9 +388,25 @@ const chart = function () {
 
 
 const tools = () => {
-  const addCSVWindow = document.getElementById('addCSV')
-  const addMenu = document.querySelector('.addMenu')
-  addCSVWindow.addEventListener('click', () => addMenu.classList.toggle('hidden'))
+  // add csv
+  const addWindow1 = document.getElementById('addCSV')
+  const addMenu1 = document.querySelector('.addMenu')
+
+  // edit table
+  const addWindow2 = document.getElementById('editTable')
+  const addMenu2 = document.querySelector('.editTableWindow')
+
+
+  const menuWindow = [addWindow1, addWindow2]
+  const menuOption = [addMenu1, addMenu2]
+
+  menuWindow.forEach((one, id) => one.addEventListener('click', () => menuOption[id].classList.toggle('hidden')))
+
+  const close = [...document.querySelectorAll('.close')]
+  close.forEach(one => one.addEventListener('click', function () { this.parentNode.classList.add('hidden') }))
+
+
+
 }
 
 
