@@ -410,7 +410,7 @@ const tools = () => {
   const menuWindow = [addWindow1, addWindow2]
   const menuOption = [addMenu1, addMenu2]
 
-
+  // switching visibility of chosen window
   menuWindow.forEach((one, id) => one.addEventListener('click', () => {
     let otherWindows = menuOption.filter(one => one !== menuOption[id])
 
@@ -420,11 +420,50 @@ const tools = () => {
 
   }))
 
+
   const close = [...document.querySelectorAll('.close')]
   close.forEach(one => one.addEventListener('click', function () { this.parentNode.classList.add('hidden') }))
 
 
+  // moving window 
+  let movingMenu = false
 
+  const moveElements = [document.querySelector('.addMenu h4'), document.querySelector('.editTableWindow h4')]
+
+  const moveTheWindow = function (e) {
+
+    let dx = e.offsetX
+    let dy = e.offsetY
+    console.log(dx, dy)
+
+    movingMenu = true
+
+    let that = this.parentNode
+
+    const moveFunction = function (e) {
+      let x = e.clientX
+      let y = e.clientY
+      that.style.transform = 'translate(0,0)'
+      x = x - dx
+      y = y - dy
+
+      if (movingMenu) {
+        that.style.left = `${x}px`
+        that.style.top = `${y}px`
+      }
+    }
+
+    window.addEventListener('mousemove', moveFunction)
+
+
+    moveElements.forEach(one => one.addEventListener('mouseup', function () {
+      movingMenu = false
+      window.removeEventListener('mousemove', moveFunction)
+    }))
+
+  }
+
+  moveElements.forEach(one => one.addEventListener('mousedown', moveTheWindow))
 
 
 
