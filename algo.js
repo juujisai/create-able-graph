@@ -184,11 +184,8 @@ const chart = function () {
     spanLabelSelect1.classList.add('naglowek1')
     spanLabelSelect2.classList.add('naglowek2')
 
-    spanLabelSelect1.textContent = select1
-    spanLabelSelect2.textContent = select2
+    // the value of the label is determined in 'kropkowy' and 'slupkowy' variants
 
-    chartArea.appendChild(spanLabelSelect1)
-    chartArea.appendChild(spanLabelSelect2)
 
     // check the id of selected option
     const indexOfSelect1 = naglowkiTxt.findIndex(naglowek => naglowek === select1)
@@ -246,7 +243,10 @@ const chart = function () {
 
         return alert('nie można wybrać wartości tekstowych do wykresu kropkowego')
       }
+      // normal label value
 
+      spanLabelSelect1.textContent = select1
+      spanLabelSelect2.textContent = select2
 
       for (let i = 0; i < newDivHeight.length; i++) {
         // create labels
@@ -311,6 +311,18 @@ const chart = function () {
       let graphLabel = typeOfFirstOption === 'string' ? clearValuesForSelect1 : clearValuesForSelect2
       let graphValue = typeOfFirstOption === 'number' ? clearValuesForSelect1 : clearValuesForSelect2
 
+      let isSwitched = typeOfFirstOption === 'string' ? false : true
+
+      // choosing the string value to be on horizontal line
+      if (!isSwitched) {
+        spanLabelSelect1.textContent = select1
+        spanLabelSelect2.textContent = select2
+      } else {
+        spanLabelSelect1.textContent = select2
+        spanLabelSelect2.textContent = select1
+      }
+
+
       if (typeOfFirstOption === 'number' && typeOfSecondOption === 'number') {
         graphLabel = clearValuesForSelect1
         graphValue = clearValuesForSelect2
@@ -342,6 +354,7 @@ const chart = function () {
         div2.style.width = `${20}%`
         div2.style.height = `${100}%`
 
+
         let span1 = document.createElement('span')
         let span2 = document.createElement('span')
 
@@ -360,15 +373,12 @@ const chart = function () {
 
 
       }
-
-
-
-
-
-
-
     }
 
+    // adding labels to graph
+
+    chartArea.appendChild(spanLabelSelect1)
+    chartArea.appendChild(spanLabelSelect2)
 
   }
 
