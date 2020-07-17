@@ -61,13 +61,13 @@
 
     <h4>Edytuj tabelę</h4>
     <p><strong> Kolor nagłówka</strong>
-      <div class='colorPicker'>
-        <span class='fill redFill'></span>
-        <span class="fill blueFill"></span>
-        <span class='fill yellowFill'></span>
-        <span class='fill greenFill'></span>
-        <span class="fill blackFill"></span>
-        <span class="fill transparentFill"></span>
+      <div class='colorPicker table'>
+        <span class='fill redFill' data-color='red'></span>
+        <span class="fill blueFill"data-color='blue'></span>
+        <span class='fill yellowFill'data-color='yellow'></span>
+        <span class='fill greenFill'data-color='green'></span>
+        <span class="fill blackFill"data-color='black'></span>
+        <span class="fill transparentFill"data-color='transparent'></span>
         <input type="color" name="colorPicker" id="colorPicker">
       </div>
     </p>
@@ -76,7 +76,7 @@
         <span class='nag makeFat'><strong>B</strong></span>
         <span class="nag makeCursive">/</span>
         <span class="nag fontSize">
-         <label>Wielkość fonta</label> <select  id="fz" class="fontSizeSelect">
+         <label>Wielkość fonta</label> <select  id="fzN" class="fontSizeSelect">
             <option value="16">16px</option>
             <option value="18">18px</option>
             <option value="20">20px</option>
@@ -91,7 +91,7 @@
         <span class='cell makeFat'><strong>B</strong></span>
         <span class="cell makeCursive">/</span>
         <span class="cell fontSize">
-         <label>Wielkość fonta</label> <select  id="fz" class="fontSizeSelect">
+         <label>Wielkość fonta</label> <select  id="fzC" class="fontSizeSelect">
             <option value="16">16px</option>
             <option value="18">18px</option>
             <option value="20">20px</option>
@@ -129,7 +129,7 @@
           for="borderWidth">Szerokość
           obrysu</label>
       </div>
-      <div class='colorPicker'>
+      <div class='colorPicker cell'>
         <span class='fill redFill'></span>
         <span class="fill blueFill"></span>
         <span class='fill yellowFill'></span>
@@ -165,7 +165,7 @@
       </div>
     </p>
     <p><strong> Kolor słupków</strong>
-      <div class='colorPicker'>
+      <div class='colorPicker slup'>
         <span class='fill redFill'></span>
         <span class="fill blueFill"></span>
         <span class='fill yellowFill'></span>
@@ -176,7 +176,7 @@
       </div>
     </p>
     <p><strong> Wykres kropkowy - kolor linii pomocniczych</strong>
-      <div class='colorPicker'>
+      <div class='colorPicker additionalLines'>
         <span class='fill redFill'></span>
         <span class="fill blueFill"></span>
         <span class='fill yellowFill'></span>
@@ -187,7 +187,7 @@
       </div>
     </p>
     <p><strong> Wykres kropkowy - kolor kropek</strong>
-      <div class='colorPicker'>
+      <div class='colorPicker dotPointsColor'>
         <span class='fill redFill'></span>
         <span class="fill blueFill"></span>
         <span class='fill yellowFill'></span>
@@ -225,6 +225,8 @@
 
     </div>
   </div>
+  <script src="editTable.js"></script>
+
   <script src="algo.js"></script>
 </body>
 

@@ -384,3 +384,15 @@ div.svg {
   bottom: 0%;
   transform: translate(100%, 50%);
 }
+
+
+
+
+
+
+
+
+/* from edit functions  */
+.changeFor-red {
+  background-color: red;
+}

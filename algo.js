@@ -116,6 +116,7 @@ const tableFunction = function (text) {
 
     const allTrs = [...document.querySelectorAll('tr')]
     // console.log(allTrs)
+    editTableInit()
 
   }
 
@@ -421,7 +422,6 @@ const tools = () => {
     otherWindows.forEach(one => one.classList.add('hidden'))
 
     menuOption[id].classList.toggle('hidden')
-
   }))
 
 
