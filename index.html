@@ -26,7 +26,15 @@
         <a>Edycja 
         <div class ='option'>
          <div id='editTable'>Edycja tabeli</div> 
-         <div>Edycja wykresu</div> 
+         <div id='editGraph'>Edycja wykresu</div> 
+        </div>
+        </a>
+      </li>
+      <li>
+        <a>Eksport 
+        <div class ='option'>
+         <div>Eksport tabeli</div> 
+         <div>Eksport wykresu</div> 
         </div>
         </a>
       </li>
@@ -61,6 +69,36 @@
         <span class="fill blackFill"></span>
         <span class="fill transparentFill"></span>
         <input type="color" name="colorPicker" id="colorPicker">
+      </div>
+    </p>
+    <p><strong> Styl nagłówka</strong>
+      <div class='nagStyle'>
+        <span class='nag makeFat'><strong>B</strong></span>
+        <span class="nag makeCursive">/</span>
+        <span class="nag fontSize">
+         <label>Wielkość fonta</label> <select  id="fz" class="fontSizeSelect">
+            <option value="16">16px</option>
+            <option value="18">18px</option>
+            <option value="20">20px</option>
+            <option value="22">22px</option>
+            <option value="24">24px</option>
+          </select>
+        </span>
+      </div>
+    </p>
+    <p><strong> Styl komórek</strong>
+      <div class='cellStyle'>
+        <span class='cell makeFat'><strong>B</strong></span>
+        <span class="cell makeCursive">/</span>
+        <span class="cell fontSize">
+         <label>Wielkość fonta</label> <select  id="fz" class="fontSizeSelect">
+            <option value="16">16px</option>
+            <option value="18">18px</option>
+            <option value="20">20px</option>
+            <option value="22">22px</option>
+            <option value="24">24px</option>
+          </select>
+        </span>
       </div>
     </p>
     <p><strong>Obramowanie tabeli</strong>
@@ -109,6 +147,22 @@
     </p>
 
   </div>
+
+
+
+
+  <div class="editGraphWindow hidden">
+    <span class='close'>x</span>
+
+    <h4>Edytuj wykres</h4>
+    <p><strong> Wykres słupkowy </strong>
+
+    </p>
+
+  </div>
+
+
+
 
 
 

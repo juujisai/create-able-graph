@@ -407,8 +407,12 @@ const tools = () => {
   const addMenu2 = document.querySelector('.editTableWindow')
 
 
-  const menuWindow = [addWindow1, addWindow2]
-  const menuOption = [addMenu1, addMenu2]
+  // edit graph
+  const addWindow3 = document.getElementById('editGraph')
+  const addMenu3 = document.querySelector('.editGraphWindow')
+
+  const menuWindow = [addWindow1, addWindow2, addWindow3]
+  const menuOption = [addMenu1, addMenu2, addMenu3]
 
   // switching visibility of chosen window
   menuWindow.forEach((one, id) => one.addEventListener('click', () => {

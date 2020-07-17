@@ -57,7 +57,7 @@ header {
   position: absolute;
   top: 100%;
   left: 0%;
-  min-width: 100%;
+  min-width: 150%;
   background-color: rgb(185, 184, 184);
   line-height: 2;
   text-align: left;
@@ -70,12 +70,14 @@ header {
 
 
 .addMenu.hidden,
-.editTableWindow.hidden {
+.editTableWindow.hidden,
+.editGraphWindow.hidden {
   display: none;
 }
 
 .addMenu,
-.editTableWindow {
+.editTableWindow,
+.editGraphWindow {
   display: block;
   position: absolute;
   left: 50%;
@@ -89,33 +91,46 @@ header {
 }
 
 .addMenu h4,
-.editTableWindow h4 {
+.editTableWindow h4,
+.editGraphWindow h4 {
   background-color: #ddd;
   cursor: pointer;
 }
 
 .addMenu h4,
 .addMenu input,
-.editTableWindow h4 {
+.editTableWindow h4,
+.editGraphWindow h4 {
   padding: 10px 20px;
 }
 
 .addMenu p,
-.editTableWindow p {
+.editTableWindow p,
+.editGraphWindow p {
   padding: 10px 20px;
 }
 
 .colorPicker,
 .borderTable,
 .borderCell,
-.lineStyle {
+.lineStyle,
+.nagStyle,
+.cellStyle {
   margin-left: 20px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
 }
 
-.fill {
+.nagStyle span,
+.cellStyle span {
+  background-color: #ddd;
+  text-align: center;
+}
+
+.fill,
+.nag,
+.cell {
   display: block;
   width: 20px;
   height: 20px;
@@ -123,8 +138,31 @@ header {
   margin-right: 3%;
 }
 
-.fill:hover {
+.nag:nth-last-child(1),
+.cell:nth-last-child(1) {
+  width: auto;
+  background-color: white;
+  border: none;
+}
+
+
+
+
+.nag:nth-last-child(1) label,
+.cell:nth-last-child(1) label {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.fill:hover,
+.nag:hover,
+.cell:hover {
   filter: invert(20%)
+}
+
+.nag:hover:nth-last-child(1),
+.cell:hover:nth-last-child(1) {
+  filter: none
 }
 
 .redFill {
