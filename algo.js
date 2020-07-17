@@ -443,9 +443,11 @@ const tools = () => {
     const moveFunction = function (e) {
       let x = e.clientX
       let y = e.clientY
+      let scrollY = window.scrollY
+      console.log(x, y, scrollY)
       that.style.transform = 'translate(0,0)'
       x = x - dx
-      y = y - dy
+      y = y - dy + scrollY
 
       if (movingMenu) {
         that.style.left = `${x}px`
