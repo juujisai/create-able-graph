@@ -117,11 +117,11 @@ const tableFunction = function (text) {
     const allTrs = [...document.querySelectorAll('tr')]
     // console.log(allTrs)
     editTableInit()
-
   }
 
   createTable(d)
   chart()
+
 }
 
 
@@ -374,12 +374,14 @@ const chart = function () {
 
 
       }
+
     }
 
     // adding labels to graph
 
     chartArea.appendChild(spanLabelSelect1)
     chartArea.appendChild(spanLabelSelect2)
+    editGraphInit()
 
   }
 
