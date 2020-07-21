@@ -103,46 +103,49 @@
     </p>
     <p><strong>Obramowanie tabeli</strong>
       <div class="borderTable">
-        <input type="range" min='0' max='5' value='2' name="borderWidth" id="borderWidth"><label
-          for="borderWidth">Szerokość
+        <input type="range" min='0' max='5' value='2' name="borderWidth" id="borderWidth" class='table'
+          data-type="width"><label for="borderWidth">Szerokość
           obrysu</label>
       </div>
-      <div class='colorPicker'>
-        <span class='fill redFill'></span>
-        <span class="fill blueFill"></span>
-        <span class='fill yellowFill'></span>
-        <span class='fill greenFill'></span>
-        <span class="fill blackFill"></span>
-        <span class="fill transparentFill"></span>
-        <input type="color" name="colorPicker" id="colorPicker"> <label> Kolor obrysu</label>
+      <div class='colorPicker tableColor' data-type='color'>
+        <span class='fill redFill table' data-color='red' data-type='color'></span>
+        <span class="fill blueFill table"data-color='blue' data-type='color'></span>
+        <span class='fill yellowFill table'data-color='yellow' data-type='color'></span>
+        <span class='fill greenFill table'data-color='green' data-type='color'></span>
+        <span class="fill blackFill table"data-color='black' data-type='color'></span>
+        <span class="fill transparentFill table"data-color='transparent' data-type='color'></span>
+        <input type="color" name="colorPicker" id="colorPicker" class='table' data-type='color'> <label> Kolor
+          obrysu</label>
       </div>
       <div class='lineStyle'>
-        <select class="type" id="typeOfLineTable">
-          <option value="ciagly">Linia ciągła</option>
-          <option value="przerywany">Linia przerywana</option>
-          <option value="kropkowany">Linia kropkowana</option>
+        <select class="type table" id="typeOfLineTable" data-type="style">
+          <option value="solid">Linia ciągła</option>
+          <option value="dashed">Linia przerywana</option>
+          <option value="dotted">Linia kropkowana</option>
         </select><label> Styl obrysu</label>
       </div>
     </p>
     <p><strong>Obramowanie komórek</strong>
-      <div class="borderCell"><input type="range" min='0' max='5' value='1' name="borderWidth" id="borderWidth"><label
-          for="borderWidth">Szerokość
+      <div class="borderCell">
+        <input type="range" min='0' max='5' value='1' name="cellBorderWidth" id="cellBorderWidth" class='cellT'
+          data-type="width"><label for="cellBorderWidth">Szerokość
           obrysu</label>
       </div>
-      <div class='colorPicker cellTool'>
-        <span class='fill redFill'></span>
-        <span class="fill blueFill"></span>
-        <span class='fill yellowFill'></span>
-        <span class='fill greenFill'></span>
-        <span class="fill blackFill"></span>
-        <span class="fill transparentFill"></span>
-        <input type="color" name="colorPicker" id="colorPicker"> <label> Kolor obrysu</label>
+      <div class='colorPicker cellTColor' data-type='color'>
+        <span class='fill redFill cellT' data-color='red' data-type='color'></span>
+        <span class="fill blueFill cellT"data-color='blue' data-type='color'></span>
+        <span class='fill yellowFill cellT'data-color='yellow'' data-type='color'></span>
+        <span class='fill greenFill cellT'data-color='green' data-type='color'></span>
+        <span class="fill blackFill cellT"data-color='black'' data-type='color'></span>
+        <span class="fill transparentFill cellT"data-color='transparent' data-type='color'></span>
+        <input type="color" name="colorPicker" id="colorPicker" class='cellT' data-type='color'> <label> Kolor
+          obrysu</label>
       </div>
       <div class='lineStyle'>
-        <select class="type" id="typeOfLineTable">
-          <option value="ciagly">Linia ciągła</option>
-          <option value="przerywany">Linia przerywana</option>
-          <option value="kropkowany">Linia kropkowana</option>
+        <select class="type cellT" id="typeOfLineTableCell" data-type="style">
+          <option value="solid">Linia ciągła</option>
+          <option value="dashed">Linia przerywana</option>
+          <option value="dotted">Linia kropkowana</option>
         </select><label> Styl obrysu</label></div>
     </p>
 

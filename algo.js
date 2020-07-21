@@ -432,13 +432,12 @@ const tools = () => {
   // moving window 
   let movingMenu = false
 
-  const moveElements = [document.querySelector('.addMenu h4'), document.querySelector('.editTableWindow h4')]
+  const moveElements = [document.querySelector('.addMenu h4'), document.querySelector('.editTableWindow h4'), document.querySelector('.editGraphWindow h4')]
 
   const moveTheWindow = function (e) {
 
     let dx = e.offsetX
     let dy = e.offsetY
-    console.log(dx, dy)
 
     movingMenu = true
 
@@ -448,7 +447,6 @@ const tools = () => {
       let x = e.clientX
       let y = e.clientY
       let scrollY = window.scrollY
-      console.log(x, y, scrollY)
       that.style.transform = 'translate(0,0)'
       x = x - dx
       y = y - dy + scrollY
