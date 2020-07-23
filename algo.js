@@ -414,8 +414,14 @@ const tools = () => {
   const addWindow3 = document.getElementById('editGraph')
   const addMenu3 = document.querySelector('.editGraphWindow')
 
-  const menuWindow = [addWindow1, addWindow2, addWindow3]
-  const menuOption = [addMenu1, addMenu2, addMenu3]
+  // help
+
+  const addWindow4 = document.getElementById('help')
+  const addMenu4 = document.querySelector('.helpWindow')
+
+
+  const menuWindow = [addWindow1, addWindow2, addWindow3, addWindow4]
+  const menuOption = [addMenu1, addMenu2, addMenu3, addMenu4]
 
   // switching visibility of chosen window
   menuWindow.forEach((one, id) => one.addEventListener('click', () => {
@@ -434,7 +440,7 @@ const tools = () => {
   // moving window 
   let movingMenu = false
 
-  const moveElements = [document.querySelector('.addMenu h4'), document.querySelector('.editTableWindow h4'), document.querySelector('.editGraphWindow h4')]
+  const moveElements = [document.querySelector('.addMenu h4'), document.querySelector('.editTableWindow h4'), document.querySelector('.editGraphWindow h4'), document.querySelector('.helpWindow h4')]
 
   const moveTheWindow = function (e) {
 

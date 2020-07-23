@@ -31,17 +31,9 @@
         </a>
       </li>
       <li>
-        <a>Eksport 
-        <div class ='option'>
-         <div>Eksport tabeli</div> 
-         <div>Eksport wykresu</div> 
-        </div>
-        </a>
-      </li>
-      <li>
         <a>Pomoc 
         <div class ='option'>
-         <div>Pomoc</div> 
+         <div id='help'>Pomoc</div> 
         </div>
         </a>
       </li>
@@ -152,8 +144,6 @@
   </div>
 
 
-
-
   <div class="editGraphWindow hidden">
     <span class='close'>x</span>
 
@@ -206,7 +196,18 @@
 
 
 
-
+  <div class="helpWindow">
+    <span class='close'>x</span>
+    <h4>Pomoc</h4>
+    <div class="content">
+      <div class="question">
+        <ul class='questionContainer'></ul>
+      </div>
+      <p><strong>Odpowiedź</strong></p>
+      <div class="answer">
+      </div>
+    </div>
+  </div>
 
   <div id="csv"></div>
 
@@ -228,6 +229,7 @@
 
     </div>
   </div>
+  <script src="helpWindow.js"></script>
   <script src="editTable.js"></script>
   <script src="editGraph.js"></script>
   <script src="algo.js"></script>
